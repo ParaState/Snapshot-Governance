@@ -1,4 +1,4 @@
-//SPDX-License-Identifier: Unlicense
+//SPDX-License-Identifier: MIT license
 pragma solidity ^0.8.0;
 
 import "hardhat/console.sol";
@@ -10,7 +10,6 @@ abstract contract StateToken {
 abstract contract CompoundStakingReward {
     function calculateSharesValueInState(address user) external view virtual returns (uint256);
 }
-
 
 contract ProxyReader {
     address public stateTokenAddr;

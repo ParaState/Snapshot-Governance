@@ -13,8 +13,9 @@ describe("Reader", function () {
     let provider = ethers.provider;
     let signer = await provider.getSigner();
     let account = await signer.getAddress();
-    account = process.env.CHECK_ADDR || ""
     console.log("account", account);
+
+    account = process.env.CHECK_ADDR || ""
     console.log("balance", await provider.getBalance(account));
 
 
@@ -43,12 +44,12 @@ describe("Reader", function () {
     console.log(stakingReward.mul(2).add(erc20Balance).toString())
 
     const ProxyReader = await ethers.getContractFactory("ProxyReader");
-    // const proxyReader = await ProxyReader.deploy(erc20Addr, stakingAddr);
-    // await proxyReader.deployed();
-    // console.log("ProxyReader addr", proxyReader.address)
+    const proxyReader = await ProxyReader.deploy(erc20Addr, stakingAddr);
+    await proxyReader.deployed();
+    console.log("ProxyReader addr", proxyReader.address)
 
-    let ProxyReaderAddr = process.env.PROXY_READER_ADDR || ""
-    let proxyReader = ProxyReader.attach(ProxyReaderAddr)
+    // let ProxyReaderAddr = process.env.PROXY_READER_ADDR || ""
+    // let proxyReader = ProxyReader.attach(ProxyReaderAddr)
     console.log(ethers.utils.formatUnits(await proxyReader.balanceOf(account), 18))
 
   });
