@@ -1,8 +1,6 @@
 //SPDX-License-Identifier: MIT license
 pragma solidity ^0.8.0;
 
-import "hardhat/console.sol";
-
 abstract contract StateToken {
   function balanceOf(address _owner) external view virtual returns (uint256);
 }
