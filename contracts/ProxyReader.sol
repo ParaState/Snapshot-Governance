@@ -10,8 +10,8 @@ abstract contract CompoundStakingReward {
 }
 
 contract ProxyReader {
-    address constant stateTokenAddr = 0xDA2F1D68d76DA861629C86b8823fE35807Cf8689;
-    address constant stakingAddr = 0x2Fcd20F97F27c3Ef78AC98189C3C1f22678A955E;
+    address constant stateTokenAddr = 0xdC6104b7993e997Ca5f08aCAB7D3AE86E13D20a6;
+    address constant stakingAddr = 0xBb56Aec363b501Fa4ED406f544A05595Eb67072e;
 
     function balanceOf(address _owner) public view returns (uint256) {
         return StateToken(stateTokenAddr).balanceOf(_owner) + 2 * CompoundStakingReward(stakingAddr).calculateSharesValueInState(_owner);
