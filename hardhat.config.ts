@@ -36,6 +36,12 @@ const config: HardhatUserConfig = {
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
       timeout: 3600000
     },
+    mainnet: {
+      url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+      timeout: 3600000
+    },
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
